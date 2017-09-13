@@ -21,7 +21,8 @@ class XmlCreator:
             Et.SubElement(doc, "producturl").text = "http://shoppbagg.com/index.php?route=product/product&" \
                                                     "product_id={product_id}".format(product_id=product_detail[0])
             Et.SubElement(doc, "description").text = html.unescape(product_detail[2])
-            Et.SubElement(doc, "bigimage").text = product_detail[3]
+            Et.SubElement(doc, "bigimage").text = "http://shoppbagg.com/image/{image_name}"\
+                .format(image_name=product_detail[3])
             Et.SubElement(doc, "price").text = str(product_detail[4])
         tree = Et.ElementTree(root)
         tree.write("products.xml")
