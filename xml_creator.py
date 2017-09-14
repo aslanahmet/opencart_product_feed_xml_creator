@@ -24,6 +24,7 @@ class XmlCreator:
             Et.SubElement(doc, "bigimage").text = "http://shoppbagg.com/image/{image_name}"\
                 .format(image_name=product_detail[3])
             Et.SubElement(doc, "price").text = str(product_detail[4])
+            Et.SubElement(doc, "stock").text = 'true'
         tree = Et.ElementTree(root)
         tree.write("products.xml")
 test = XmlCreator()
