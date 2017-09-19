@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 from xml_creator import XmlCreator
 
@@ -12,10 +12,9 @@ def xml_creator():
     return "Product xml created."
 
 
-@app.route('/product_xml')
+@app.route('/product_xml.xml')
 def get_product_xml():
-    products_xml = open('products.xml', 'r')
-    return products_xml.read()
+    return render_template("products.xml")
 
 if __name__ == '__main__':
     app.run(port=8080)
